@@ -50,7 +50,7 @@ class User(UserMixin, db.Model):
     posts = relationship("BlogPost", back_populates='author')
     comment = relationship("Comment", back_populates="comment_author")
 
-db.create_all()
+# db.create_all()
 class BlogPost(db.Model):
     __tablename__ = "blog_posts"
     id = db.Column(db.Integer, primary_key=True)
@@ -66,7 +66,7 @@ class BlogPost(db.Model):
 
     comment = relationship("Comment", back_populates="parent_post")
 
-db.create_all()
+# db.create_all()
 class Comment(db.Model):
     __tablename__ = "comments"
     id = db.Column(db.Integer, primary_key=True)
@@ -80,7 +80,7 @@ class Comment(db.Model):
     text = db.Column(db.Text, nullable=False)
 
 
-db.create_all()
+# db.create_all()
 
 
 def admin_only(f):
